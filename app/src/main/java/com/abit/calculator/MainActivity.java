@@ -1,10 +1,14 @@
 package com.abit.calculator;
 
+import static android.view.View.VISIBLE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private Integer second;
     private Boolean isOperationClick;
     private String sign;
+    private Button invsblBTN;
     private Float first2;
     private Float second2;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -22,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.text_view);
+        invsblBTN=findViewById(R.id.invisibleButton);
+
+        findViewById(R.id.invisibleButton).setOnClickListener(view -> {
+            String text= textView.getText().toString();
+
+            Intent intent= new Intent(MainActivity.this,MainActivity2.class);
+            intent.putExtra("key1", text);
+
+            startActivity(intent);
+        });
+
+
 
     }
 
@@ -120,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_clean:
                 textView.setText("0");
+                invsblBTN.setVisibility(View.INVISIBLE);
                 break;
         }
         isOperationClick=false;
@@ -149,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_equal:
                 second=Integer.valueOf(textView.getText().toString());
+
                 if (sign.equals("+")){
 
                     Integer result = first + second;
@@ -170,7 +190,12 @@ public class MainActivity extends AppCompatActivity {
                     Integer result = first % second;
                     textView.setText(result.toString());
                 }
+                invsblBTN.setVisibility(VISIBLE);
         }
         isOperationClick=true;
+    }
+
+    public void onButtonClick(View view){
+
     }
 }

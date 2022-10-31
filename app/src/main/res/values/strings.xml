@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CalCulator</string>
+    <string name="police">Police</string>
+    <string name="next">Next</string>
+    <string name="other_polices">Other Polices</string>
+    <string name="exit">EXIT</string>
+    <string name="ac">AC</string>
 </resources>

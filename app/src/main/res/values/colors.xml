@@ -10,4 +10,7 @@
     <color name="gray">#7E7B7B</color>
     <color name="orange">#FF9800</color>
     <color name="dark_gray">#403F3E</color>
+    <color name="white2">#F2E8E6E6</color>
+    <color name="blue20">#28C1C1</color>
+    <color name="blue30">#2D9C9C</color>
 </resources>
